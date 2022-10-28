@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// components
+
+// widgets
+
+// pages
+
+body {
+  background: #fff;
+  transition: all 0.1s linear;
+}
+
+.share_button {
+  cursor: pointer;
+
+  .tooltip {
+    left: -110px;
+    top: 2px;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .tooltip {
+      visibility: visible;
+    }
+  }
+}
