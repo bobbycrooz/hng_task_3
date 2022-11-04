@@ -53,7 +53,7 @@ body {
   @apply text-[#475467] font-normal text-lg  h-auto;
 
   &.title {
-    @apply text-[#101828] font-semibold text-[36px];
+    @apply text-[#101828] text-[36px] font-semibold ;
   }
 }
 
@@ -93,5 +93,5 @@ body {
 
 
 .zuri_button{
-  @apply rounded-lg p-4 bg-blue-600 font-semibold text-[16px] text-white w-full;
+  @apply text-[16px] rounded-lg p-4 bg-blue-600 font-semibold  text-white w-full;
 }

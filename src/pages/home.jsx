@@ -101,7 +101,7 @@ const Home = () => {
         {Links.map((item, index) => (
           <>
             {item.name === "contact"  ? (
-              <Link title={item.title} to={item.link}  id={item.id} key={index}>
+              <Link title={item.title} to={item.link}  id={item.id} key={item.name}>
                 <button className="link_card-item w-full bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
                   <p className="text-[#101828] capitalize font-medium text-sm">
                     {item.name}
@@ -109,7 +109,7 @@ const Home = () => {
                 </button>
               </Link>
             ) : (
-              <a title={item.title} href={item.link} id={item.id} key={index}>
+              <a title={item.title} href={item.link} id={item.id} key={item.name}>
                 <div className="link_card-item bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
                   <p className="text-[#101828] capitalize font-medium text-sm">
                     {item.name}
