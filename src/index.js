@@ -1,13 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.scss";
+import reportWebVitals from "./reportWebVitals";
+import { HashRouter, Routes, Route } from "react-router-dom";
+// import ContactPage from "./pages";
+import Home, {ContactPage} from "./pages";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <Routes >
+        <Route path="/" element={<Home />}/>
+        <Route path="/contact" element={<ContactPage />}/>
+      </Routes>
+    </HashRouter>
   </React.StrictMode>
 );
 

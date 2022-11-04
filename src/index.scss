@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 // components
 
 // widgets
@@ -12,6 +11,26 @@
 body {
   background: #fff;
   transition: all 0.1s linear;
+}
+
+.br{
+  border: 0.5px solid red;
+}
+
+// *{
+//   border: 0.5px solid red;
+// }
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle{
+  display: flex;
+  // justify-content: center;
+  align-items: center;
 }
 
 .share_button {
@@ -28,4 +47,51 @@ body {
       visibility: visible;
     }
   }
+}
+
+.text {
+  @apply text-[#475467] font-normal text-lg  h-auto;
+
+  &.title {
+    @apply text-[#101828] font-semibold text-[36px];
+  }
+}
+
+.contact {
+  .page-content {
+    @apply w-full h-auto;
+  }
+}
+
+.form_container {
+  .input_group {
+    @apply  space-y-2 flex flex-col;
+    label {
+      @apply text-gray-700 font-medium text-lg  capitalize;
+    }
+
+    .form_input_field, textarea{
+      @apply rounded-lg p-3 border border-gray-300;
+      &:focus{
+        outline: 1px solid blue;
+      
+      }
+    }
+
+    .form_input_field{
+      height: 45px;
+      text-transform: capitalize;
+
+
+    }
+
+    textarea{
+      height: 140px;
+    }
+  }
+}
+
+
+.zuri_button{
+  @apply rounded-lg p-4 bg-blue-600 font-semibold text-[16px] text-white w-full;
 }
