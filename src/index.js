@@ -2,18 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
-import { HashRouter, Routes, Route } from "react-router-dom";
-// import ContactPage from "./pages";
-import Home, {ContactPage} from "./pages";
+import App from "./App";
+import { HashRouter } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <Routes >
-        <Route path="/" element={<Home />}/>
-        <Route path="/contact" element={<ContactPage />}/>
-      </Routes>
+      <AnimatePresence mode="wait">
+        <App />
+      </AnimatePresence>
     </HashRouter>
   </React.StrictMode>
 );

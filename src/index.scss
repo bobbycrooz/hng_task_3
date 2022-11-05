@@ -72,9 +72,18 @@ body {
 
     .form_input_field, textarea{
       @apply rounded-lg p-3 border border-gray-300;
+
       &:focus{
         outline: 1px solid blue;
-      
+      }
+
+      &.error{
+        @apply border-[#F89687] border-2 ;
+        box-shadow: 0 0 0 4px #f79f91ca;
+        &:focus{
+          outline: 1px solid red;
+        }
+
       }
     }
 

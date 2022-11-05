@@ -6,15 +6,20 @@ import zuri from "../assets/images/zuri.png";
 import dp from "../assets/images/bobby.png";
 import i4g from "../assets/images/i4g.png";
 import tooltip from "../assets/images/tooltip.png";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+// import { Links } from "../data";
+import Transitions from "../Transitions";
 
 const Home = () => {
-  let slackname = "bobby dev";
-  const location = useLocation();
+  const slackname = "bobby dev";
 
-  console.log(location.state);
+  React.useEffect(() => {
+    console.log("home.jslogged");
+  }, []);
 
-  let Links = [
+  const Links = [
     {
       name: "Zuri Team",
       link: "https://training.zuri.team/",
@@ -48,105 +53,116 @@ const Home = () => {
       title:
         "Click here to pitch a service for doing background checks on coders",
     },
-
-    {
-      name: "contact",
-      link: "/contact",
-      id: "contact",
-      title: "send a message to me",
-    },
   ];
 
+  let contactDetails = {
+    name: "contact",
+    link: "/contact",
+    id: "contact",
+    title: "send a message to me",
+  };
+
+
+
   return (
-    <div className="bg-white px-4 md:px-28">
-      <div className="absolute right-4 md:right-56 md:hidden top-8">
-        <img src={menu} alt="menu icon" />
-      </div>
-
-      <div className="absolute share_button right-4 md:right-56 hidden md:flex top-8">
-        <div className="relative">
-          <img src={menu2} alt="menu icon" />
-        </div>
-        <div className="tooltip absolute left-0">
-          <img src={tooltip} alt="menu icon" />
-        </div>
-      </div>
-
-      <div className="dp_container mx-auto min-w-[200px] flex items-center flex-col mt-12">
-        <div className="dp">
-          <img src={dp} id="profile__img" alt="profile" />
+    <Transitions>
+      <div className="bg-white px-4 md:px-28 pb-11">
+        <div className="absolute right-4 md:right-56 md:hidden top-8">
+          <img src={menu} alt="menu icon" />
         </div>
 
-        <div className="flex space-x-2 my-4 items-center">
+        <div className="absolute share_button right-4 md:right-56 hidden md:flex top-8">
+          <div className="relative">
+            <img src={menu2} alt="menu icon" />
+          </div>
+          <div className="tooltip absolute left-0">
+            <img src={tooltip} alt="menu icon" />
+          </div>
+        </div>
+
+        <div className="dp_container mx-auto min-w-[200px] flex items-center flex-col mt-12">
+          <div className="dp">
+            <img src={dp} id="profile__img" alt="profile" />
+          </div>
+
+          <div className="flex space-x-2 my-4 items-center">
+            <h1
+              id="twitter"
+              className="name text-gray-900 font-bold text-lg my-2"
+            >
+              @idrisloove
+            </h1>
+
+            {/*  */}
+          </div>
+
           <h1
-            id="twitter"
-            className="name text-gray-900 font-bold text-lg my-2"
+            id="slack"
+            className="name text-gray-900 font-bold text-lg my-2 hidden"
           >
-            @idrisloove
+            bobby dev
+          </h1>
+        </div>
+
+        <div className="list_container">
+          {Links.map((item, index) => (
+            <motion.a
+              initial={{ scale: 1.3, x: 30 }}
+              animate={{ scale: 1 , x: 0}}
+              transition={{ duration: 1 + index }}
+              title={item.title}
+              href={item.link}
+              id={item.id}
+              key={index}
+            >
+              <div className="link_card-item bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
+                <p className="text-[#101828] capitalize font-medium text-sm">
+                  {item.name}
+                </p>
+              </div>
+            </motion.a>
+          ))}
+
+          <Link
+            title={contactDetails.title}
+            to={contactDetails.link}
+            id={contactDetails.id}
+          >
+            <button className="link_card-item w-full bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
+              <p className="text-[#101828] capitalize font-medium text-sm">
+                {contactDetails.name}
+              </p>
+            </button>
+          </Link>
+        </div>
+
+        <div className="social_media-icon mb-11  p-4 flex justify-center">
+          <div>
+            <img src={slack} alt="menu icon" />
+          </div>
+
+          <div className="ml-4">
+            <img src={git} alt="menu icon" />
+          </div>
+        </div>
+
+        <hr className="w-full my-6 border border-gray-200 " />
+
+        <div className="  mt-11 mb-0 px-4 p-6  md:px-20 footer-images space-y-3 md:space-y-0 md:flex md:justify-between">
+          <div>
+            <img src={zuri} alt="menu icon" />
+          </div>
+          {/* <Image src={slack} alt='menu icon'/> */}
+          <h1 className="capitalize gray-500 text-sm">
+            HNG Internship 9 Frontend Task
           </h1>
 
-          {/*  */}
-        
-        </div>
-
-        <h1
-          id="slack"
-          className="name text-gray-900 font-bold text-lg my-2 hidden"
-        >
-          bobby dev
-        </h1>
-      </div>
-
-      <div className="list_container">
-        {Links.map((item, index) => (
-          <>
-            {item.name === "contact"  ? (
-              <Link title={item.title} to={item.link}  id={item.id} key={item.name}>
-                <button className="link_card-item w-full bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
-                  <p className="text-[#101828] capitalize font-medium text-sm">
-                    {item.name}
-                  </p>
-                </button>
-              </Link>
-            ) : (
-              <a title={item.title} href={item.link} id={item.id} key={item.name}>
-                <div className="link_card-item bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
-                  <p className="text-[#101828] capitalize font-medium text-sm">
-                    {item.name}
-                  </p>
-                </div>
-              </a>
-            )}
-          </>
-        ))}
-      </div>
-
-      <div className="social_media-icon mb-11  p-4 flex justify-center">
-        <div>
-          <img src={slack} alt="menu icon" />
-        </div>
-
-        <div className="ml-4">
-          <img src={git} alt="menu icon" />
+          <div>
+            <img id="" src={i4g} alt="menu icon" />
+          </div>
         </div>
       </div>
-
-      <hr className="w-full my-6 border border-gray-200 " />
-
-      <div className="footer-images space-y-3 md:space-y-0 md:flex md:justify-between">
-        <div>
-          <img src={zuri} alt="menu icon" />
-        </div>
-        {/* <Image src={slack} alt='menu icon'/> */}
-        <h1 className="capitalize gray-500 text-sm">
-          HNG Internship 9 Frontend Task
-        </h1>
-
-        <div>
-          <img id="" src={i4g} alt="menu icon" />
-        </div>
-      </div>
-    </div>
+    </Transitions>
   );
 };
 
