@@ -3,18 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <AnimatePresence mode="wait">
         <App />
       </AnimatePresence>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
