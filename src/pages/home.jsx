@@ -62,8 +62,6 @@ const Home = () => {
     title: "send a message to me",
   };
 
-
-
   return (
     <Transitions>
       <div className="bg-white px-4 md:px-28 pb-11">
@@ -106,21 +104,25 @@ const Home = () => {
 
         <div className="list_container">
           {Links.map((item, index) => (
-            <motion.a
-              initial={{ scale: 1.3, x: 30 }}
-              animate={{ scale: 1 , x: 0}}
-              transition={{ duration: 1 + index }}
-              title={item.title}
-              href={item.link}
-              id={item.id}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.02   }}
+              animate={{ opacity: 1, scale: 1.0 }}
+              whileHover={{ scale: 1.02  }}
+              transition={{ delay: index * 0.2 }}
               key={index}
             >
-              <div className="link_card-item bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6">
+              <a
+                title={item.title}
+                href={item.link}
+                id={item.id}
+             
+                className="link_card-item bg-gray-200 rounded-lg my-4 flex items-center justify-center p-6"
+              >
                 <p className="text-[#101828] capitalize font-medium text-sm">
                   {item.name}
                 </p>
-              </div>
-            </motion.a>
+              </a>
+            </motion.div>
           ))}
 
           <Link

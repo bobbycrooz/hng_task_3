@@ -7,15 +7,22 @@ import { AnimatePresence } from "framer-motion";
 
 const App = () => {
   const location = useLocation();
+
   React.useEffect(() => {
-    console.log("app.jslogged");
-  }, []);
+    window.scrollTo({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    })
+  }, [location.pathname]);
 
   return (
-    <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<ContactPage />} />
-    </Routes>
+      </Routes>
+    </AnimatePresence>
   );
 };
 
