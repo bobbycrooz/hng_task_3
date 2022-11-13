@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 // import ContactPage from "./pages";
-import Home, { ContactPage } from "./pages";
+import Home from "./pages";
 import { AnimatePresence } from "framer-motion";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<ContactPage />} />
+        {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
     </AnimatePresence>
   );

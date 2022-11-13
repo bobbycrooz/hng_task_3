@@ -1,0 +1,30 @@
+.text {
+    @apply  text-hng-black;
+
+    &.title {
+        @apply  text-[56px] ;
+        line-height: 140%;
+        letter-spacing: -2%;
+    }
+
+    &.body {
+        @apply  text-[24px];
+        line-height: 35px;
+    }
+
+    &.title-big{
+        @apply  text-[48px] ;
+        font-weight: bold;
+    }
+
+    &.body-small{
+        @apply  text-[12px] ;
+        line-height: 13.2px;
+
+    }
+
+    &.bold{
+        font-weight: bold;
+    }
+
+}

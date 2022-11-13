@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// components
+
+// widgets
+
+// pages
+@import './pages/home.scss';
+@import './components/button.scss';
+@import './components/text.scss';
+@import './components/inspiration.scss';
+
+body {
+  background: #fff;
+  transition: all 0.1s linear;
+}
+
+.br{
+  border: 0.5px solid red;
+}
+
+// *{
+//   border: 0.5px solid red;
+// }
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle{
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+
+.share_button {
+  cursor: pointer;
+
+  .tooltip {
+    left: -110px;
+    top: 2px;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .tooltip {
+      visibility: visible;
+    }
+  }
+}
+
+
+li.list{
+  @apply text-[#F1F3F9] text-sm;
+}
+
+ul.footer{
+  @apply space-y-3;
+}

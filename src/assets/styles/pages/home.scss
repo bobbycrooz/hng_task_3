@@ -1,0 +1,24 @@
+.home{
+    @apply bg-inherit;
+    .hero{
+        height: 70vh;
+
+        &_content-wrapper{
+
+            .text_box{
+                width: 640px;
+
+                span.bold{
+                    @apply text-hng-purple font-bold;
+                }
+            }
+
+            .image_box{
+                width: 476px;
+                height: 459px;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,21 @@
+.inspire {
+    // @apply bg-[#A02279] px-6 p-3 text-white rounded-lg ;
+
+    .card_layout {
+        .nft_card {
+            width: 292px;
+            @apply border rounded-xl p-4;
+            .image_box {
+                width: 260px;
+                height: 265px;
+            }
+        }
+    }
+
+
+ 
+}
+
+.meta_bnb{
+    @apply w-full h-screen bg-hng-purple p-[100px];
+}
