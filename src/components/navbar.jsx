@@ -1,73 +1,95 @@
 import React from "react";
 import LogoAnimate from "../../src/assets/images/lOGO.svg";
+import close from "../../src/assets/images/times.svg";
 
 const navArr = ["home", "place to stay", "NFT", "community"];
 
-  // const Links = [
-  //   {
-  //     name: "Zuri Team",
-  //     link: "https://training.zuri.team/",
-  //     id: "btn__zuri",
-  //   },
-  //   {
-  //     name: "Zuri Books",
-  //     link: "http://books.zuri.team/",
-  //     id: "books",
-  //     title: "Find books about design and coding here.",
-  //   },
+const Navbar = ({ toggle }) => {
+  const [mobileMenu, setMobileMenul] = React.useState(false);
 
-  //   {
-  //     name: "Python Books",
-  //     link: `https://books.zuri.team/python-for-beginners?ref_id=${slackname}`,
-  //     id: "book__python",
-  //     title: "To feature a book like you want to sell it.",
-  //   },
-
-  //   {
-  //     name: "Design Books",
-  //     link: "https://books.zuri.team/design-rules",
-  //     id: "book__design",
-  //     title: "click here to pitch the free design book offered by Zuri.",
-  //   },
-
-  //   {
-  //     name: "Background Check for Coders",
-  //     link: "https://background.zuri.team/",
-  //     id: "pitch",
-  //     title:
-  //       "Click here to pitch a service for doing background checks on coders",
-  //   },
-  // ];
-
-  // let contactDetails = {
-  //   name: "contact",
-  //   link: "/contact",
-  //   id: "contact",
-  //   title: "send a message to me",
-  // };
-
-const Navbar = () => {
   return (
-    <div className="navbar h-[80px] bg-white flex items-center justify-between px-[100px] ">
+    <div className="navbar h-[80px]  bg-white flex items-center justify-between px-4 md:px-[100px] ">
       <div className="logo-box cursor-pointer">
         <a href="/">
           <img src={LogoAnimate} width={150} height={60} alt="logo" />
         </a>
       </div>
 
-      <div className="nav-list  p-2">
+      <div className="nav-list hidden lg:block  p-4">
         <ul className="list flex items-center space-x-8">
           {navArr.map((item, index) => (
-            <li key={index} className="list-item">
-              <p className=" capitalize text-xl ">{item}</p>
-            </li>
+            <a
+              key={index}
+              href={index === 1 ? "/place" : "/"}
+              className="links"
+            >
+              <li className="list-item">
+                <p className=" capitalize text-xl ">{item}</p>
+              </li>
+            </a>
           ))}
         </ul>
       </div>
 
-      <div className="button_box ">
-        <button className="btn capitalize">connect wallet</button>
+      <div className="button_box hidden lg:block">
+        <button onClick={() => toggle((p) => !p)} className="btn capitalize">
+          connect wallet
+        </button>
       </div>
+
+      <div
+        role="button"
+        title="menu"
+        onClick={() => setMobileMenul((p) => !p)}
+        className="hamburger lg:hidden"
+      >
+        <div className="icon p-1 w-9  border-2 hover:shadow-sm cursor-pointer space-y-1">
+          <div className="w-full h-1 bg-gray-400 rounded-xl"></div>
+          <div className="w-full h-1 bg-gray-400 rounded-xl"></div>
+          <div className="w-full h-1 bg-gray-400 rounded-xl"></div>
+        </div>
+      </div>
+
+      {mobileMenu && (
+        <div className="mobile-menu lg:hidden  strictFadeIn h-full  w-full fixed left-0 top-0 bg-[#000000a2]">
+          <div className="menu_card h-screen w-[70%] bg-white p-4">
+            <div className="close flex middle justify-between">
+              <span></span>
+              <div
+                role="button"
+                title="close"
+                onClick={() => setMobileMenul((p) => !p)}
+                className="times border p-2 rounded-lg"
+              >
+                <img src={close} alt="" />
+              </div>
+            </div>
+
+            <ul className="list flex flex-col space-y-8 my-11">
+              {navArr.map((item, index) => (
+                <a
+                  key={index}
+                  href={index === 1 ? "/place" : "/"}
+                  className="links"
+                >
+                  <li className="list-item">
+                    <p className=" capitalize text-xl ">{item}</p>
+                  </li>
+                </a>
+              ))}
+            </ul>
+            <hr />
+            <div className="button_box">
+              <button
+                onClick={() => toggle((p) => !p)}
+                className="btn capitalize my-4"
+              >
+                connect wallet
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

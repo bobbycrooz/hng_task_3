@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 // import { Links } from "../data";
 import Transitions from "../Transitions";
 import Navbar from "../components/navbar";
@@ -10,9 +9,9 @@ import meta from "../assets/images/mask.svg";
 import openSea from "../assets/images/sea.svg";
 import Inspiration from "../components/Inspiration";
 import Footer from "../components/footer";
+import Modal from "../components/Modal";
 const Home = () => {
-  const slackname = "bobby dev";
-
+  const [showModal, setShowModal] = React.useState(false);
   React.useEffect(() => {
     console.log("home.jslogged");
   }, []);
@@ -21,25 +20,60 @@ const Home = () => {
 
   return (
     <Transitions>
-      <Navbar />
+      <Navbar toggle={setShowModal} />
+      {showModal && <Modal toggle={setShowModal} />}
+
       <div className="home">
-        <div className="hero bg-white py-8  w-full px-[100px] p-4">
+        <div className="hero bg-white lg:py-8  py-[50px] w-full p-4 lg:px-[100px] md:p-4">
           <div className="hero_content-wrapper">
-            <div className="flex justify-between items-center ">
-              <div className="text_box  space-y-6">
-                <hi className="text title ">
+            <div className="flex justify-between md:flex-col lg:flex-row  items-center ">
+              <motion.div className="text_box text-center md:text-left md:w-[650px] space-y-6">
+                <motion.hi
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                  }}
+                  className="text title "
+                >
                   Rent a <span className="bold">Place</span> away from{" "}
                   <span className="bold">Home</span> in the{" "}
                   <span className="bold">Metaverse</span>
-                </hi>
+                </motion.hi>
 
-                <p className="text body w-[630px]">
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 1,
+                  }}
+                  className="text body md:w-[630px]"
+                >
                   we provide you access to luxury and affordable houses in the
                   metaverse, get a chance to turn your imagination to reality at
                   your comfort zone
-                </p>
+                </motion.p>
 
-                <div className="input_group flex  w-full h-[54px]  rounded-xl">
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 1.2,
+                  }}
+                  className="input_group flex  w-full h-[54px]  rounded-xl"
+                >
                   <input
                     type="text"
                     placeholder="Search for location"
@@ -48,34 +82,44 @@ const Home = () => {
                   <button className="left_button h-full w-[30%] border border-hng-purple capitalize bg-hng-purple px-6 p-3 rounded-r-xl text-white">
                     search
                   </button>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="image_box">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale:0.8
+                }}
+                animate={{
+                  opacity: 1,
+                  scale:1
+
+                }}
+                transition={{
+                  duration: 1.4,
+                }}
+                className="hidden md:block md:my-11 lg:my-0 image_box"
+              >
                 <img
                   src={heroImage}
                   alt=""
                   className="hero-image w-full h-full"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
 
-        <div className="sponsors h-20 bg-hng-purple w-full flex items-center justify-around">
+        <div className="sponsor p-4 space-y-3 md:space-y-0 md:h-20 bg-hng-purple w-full flex flex-col md:flex-row items-center justify-around">
           {sponsorArr.map((item, index) => (
-            <div key={index} className="sponsor_logo ">
-              <img
-                src={item}
-                alt=""
-                className="hero-image w-full h-full"
-              />
+            <div key={index} className="sponsor_logo md:w-[179px] w-[40%]">
+              <img src={item} alt="" className="hero-image w-full h-full" />
             </div>
           ))}
         </div>
 
-        <Inspiration/>
-        <Footer/>
+        <Inspiration />
+        <Footer />
       </div>
     </Transitions>
   );

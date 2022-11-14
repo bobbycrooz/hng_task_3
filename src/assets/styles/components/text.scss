@@ -2,18 +2,18 @@
     @apply  text-hng-black;
 
     &.title {
-        @apply  text-[56px] ;
+        @apply  md:text-[56px] text-3xl;
         line-height: 140%;
         letter-spacing: -2%;
     }
 
     &.body {
-        @apply  text-[24px];
+        @apply  md:text-[24px] text-lg;
         line-height: 35px;
     }
 
     &.title-big{
-        @apply  text-[48px] ;
+        @apply  md:text-[48px] text-2xl;
         font-weight: bold;
     }
 

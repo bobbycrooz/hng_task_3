@@ -1,3 +1,3 @@
 import Home from './home'
-
-export {Home as default}
+import Place from './PlaceTo'
+export {Home as default, Place}

@@ -1,5 +1,4 @@
 import React from "react";
-import LogoAnimate from "../../src/assets/images/lOGO.svg";
 import image0 from "../../src/assets/images/image0.png";
 import image1 from "../../src/assets/images/image1.png";
 import image2 from "../../src/assets/images/image2.png";
@@ -8,11 +7,11 @@ import image4 from "../../src/assets/images/image4.png";
 import image5 from "../../src/assets/images/image5.png";
 import image6 from "../../src/assets/images/image6.png";
 import image7 from "../../src/assets/images/image7.png";
-import image8 from "../../src/assets/images/image8.png";
 import image9 from "../../src/assets/images/image9.png";
 import star from "../../src/assets/images/star.svg";
+import { motion } from "framer-motion";
 
-const navArr = ["home", "place to stay", "NFT", "community"];
+
 const cardImages = [
   image0,
   image1,
@@ -22,20 +21,25 @@ const cardImages = [
   image5,
   image6,
   image7,
-  // image8,
 ];
 
 const Inspiration = () => {
   return (
     <>
-      <section className="inspire w-full my-[50px]  bg-white px-[100px]">
-        <h1 className="text title-big w-full text-center">
+      <section className="inspire w-full my-[50px]   bg-white px-2 md:px-[100px]">
+        <h1 className="text title-big w-[70%] mx-auto md:w-full text-center">
           Inspiration for your next adventure
         </h1>
 
-        <div className="card_layout  mt-11 grid grid-cols-4 gap-4">
+        <div className="card_layout   mt-11 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {cardImages.map((item, index) => (
-            <div className="nft_card space-y-3">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.09 }}
+              animate={{ opacity: 1, scale: 1.0 }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+              className="nft_card space-y-3  md:w-[292px] mx-auto"
+            >
               <div className="image_box">
                 <img src={item} alt="" />
               </div>
@@ -53,17 +57,15 @@ const Inspiration = () => {
               <div className="star flex ">
                 <img src={star} alt="" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="meta_bnb flex items-center justify-between  text-white">
-        <div className="flex justify-between items-center  w-full">
-          <div className="text_box w-[415px]  space-y-6">
-            <hi className="font-bold  text-[48px] ">
-            Metabnb NFTs
-            </hi>
+      <section className="meta_bnb h-[60vh] md:p-[100px]">
+        <div className="flex justify-between items-center md:flex-col lg:flex-row  w-full">
+          <div className="text_box lg:w-[415px]   space-y-6">
+            <hi className="font-bold  text-[48px] ">Metabnb NFTs</hi>
 
             <p className="font-normal text-lg">
               Discover our NFT gift cards collection. Loyal customers gets
@@ -76,7 +78,7 @@ const Inspiration = () => {
             </button>
           </div>
 
-          <div className="image_box w-[700px] h-[574px]">
+          <div className="hidden md:block image_box w-[700px] h-[574px]">
             <img src={image9} alt="" className="hero-image w-full h-full" />
           </div>
         </div>

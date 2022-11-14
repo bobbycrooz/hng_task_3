@@ -1,26 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 // components
 
 // widgets
 
 // pages
-@import './pages/home.scss';
-@import './components/button.scss';
-@import './components/text.scss';
-@import './components/inspiration.scss';
+@import "./pages/home.scss";
+@import "./components/button.scss";
+@import "./components/text.scss";
+@import "./components/animate";
+@import "./components/inspiration.scss";
 
 body {
   background: #fff;
   transition: all 0.1s linear;
+  font-family: "Red Rose", cursive;
+  // overflow: hidden;
 }
 
-.br{
-  border: 0.5px solid red;
-}
+// .br{
+//   border: 0.5px solid red;
+// }
 
 // *{
 //   border: 0.5px solid red;
@@ -32,7 +36,7 @@ body {
   align-items: center;
 }
 
-.middle{
+.middle {
   display: flex;
   // justify-content: center;
   align-items: center;
@@ -54,11 +58,10 @@ body {
   }
 }
 
-
-li.list{
+li.list {
   @apply text-[#F1F3F9] text-sm;
 }
 
-ul.footer{
+ul.footer {
   @apply space-y-3;
 }
