@@ -61,6 +61,7 @@ const Inspiration = () => {
           ))}
         </div>
       </section>
+      {/*  */}
 
       <section className="meta_bnb h-[60vh] md:p-[100px]">
         <div className="flex justify-between items-center md:flex-col lg:flex-row  w-full">
