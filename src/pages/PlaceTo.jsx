@@ -96,17 +96,17 @@ const Place = () => {
         </div>
 
         <section className="inspire w-full my-[50px]  bg-white md:px-[100px]">
-          <div className="card_layout sm:grid-cols-2  mt-11 grid grid-cols-1 lg:grid-cols-4 gap-4">
+          <div className="card_layout sm:grid-cols-2  mt-11 grid grid-cols-1 lg:grid-cols-4 gap-6">
             {cardImages.map((item, index) => (
               <motion.div
                 initial={{ opacity: 0, scale: 1.09 }}
                 animate={{ opacity: 1, scale: 1.0 }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
-                className="nft_card space-y-3   md:w-[292px] mx-auto"
+                className="nft_card space-y-3 w-full  md:w-[292px] mx-auto"
               >
-                <div className="image_box">
-                  <img src={item} alt="" className="w-full h-full" />
+                <div className="">
+                  <img src={item} alt="" className="w-full" />
                 </div>
 
                 <div className="name_one flex justify-between items-center capitalize">

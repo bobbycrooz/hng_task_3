@@ -31,17 +31,17 @@ const Inspiration = () => {
           Inspiration for your next adventure
         </h1>
 
-        <div className="card_layout   mt-11 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="card_layout   mt-11 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {cardImages.map((item, index) => (
             <motion.div
               initial={{ opacity: 0, scale: 1.09 }}
               animate={{ opacity: 1, scale: 1.0 }}
               whileHover={{ scale: 1.02 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
-              className="nft_card space-y-3  md:w-[292px] mx-auto"
+              className="nft_card space-y-3 w-full  md:w-[292px] mx-auto"
             >
-              <div className="image_box">
-                <img src={item} alt="" />
+              <div className="br">
+                <img src={item} alt=""  className="w-full"/>
               </div>
 
               <div className="name_one flex justify-between items-center capitalize">

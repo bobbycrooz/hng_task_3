@@ -11,8 +11,9 @@
             }
 
             .image_box {
-                width: 476px;
-                height: 459px;
+              
+                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -22,6 +23,13 @@
     @media screen and (min-width: 768px) {
         .hero {
             height: 80vh;
+
+            &_content-wrapper {
+                .image_box {
+                    width: 476px;
+                    height: 459px;
+                }
+            }
         }
     }
 }
