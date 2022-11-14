@@ -40,7 +40,7 @@ const Inspiration = () => {
               transition={{ delay: index * 0.2, duration: 0.5 }}
               className="nft_card space-y-3 w-full  md:w-[292px] mx-auto"
             >
-              <div className="br">
+              <div className="">
                 <img src={item} alt=""  className="w-full"/>
               </div>
 

@@ -26,8 +26,10 @@ const Home = () => {
       <div className="home">
         <div className="hero bg-white lg:py-8  py-[50px] w-full p-4 lg:px-[100px] md:p-4">
           <div className="hero_content-wrapper">
-            <div className="flex justify-between md:flex-col lg:flex-row  items-center ">
+            <div className="flex justify-between flex-col lg:flex-row  items-center space-y-8 lg:space-y-0 ">
+
               <motion.div className="text_box text-center md:text-left md:w-[650px] space-y-6">
+
                 <motion.hi
                   initial={{
                     opacity: 0,
@@ -98,7 +100,7 @@ const Home = () => {
                 transition={{
                   duration: 1.4,
                 }}
-                className="hidden md:block md:my-11 lg:my-0 image_box"
+                className=" md:block md:my-11 lg:my-0 image_box"
               >
                 <img
                   src={heroImage}

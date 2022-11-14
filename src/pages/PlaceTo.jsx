@@ -83,8 +83,8 @@ const Place = () => {
           </div>
         </div>
 
-        <div className="w-full bg-gray-200 p-4 border lg:hidden">
-          <select name="filter" id="" className="filters p-2 capitalize">
+        <div className="w-full middle p-4 border lg:hidden">
+          <select name="filter" id="" className="border rounded-xl mx-2 filters p-2 capitalize">
             {filter.map((item, index) => (
               <option value="locaation" key={index}>
                 <div className="item p-2 px-4 ">
@@ -93,6 +93,13 @@ const Place = () => {
               </option>
             ))}
           </select>
+
+          <div className="filter_btb border rounded-xl p-2 px-4 middle">
+              <h1 className="bold text-[16px]">Location</h1>
+              <div className="icon ml-6 ">
+                <img src={fil} alt="" />
+              </div>
+            </div>
         </div>
 
         <section className="inspire w-full my-[50px]  bg-white md:px-[100px]">
